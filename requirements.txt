@@ -1,0 +1,6 @@
+streamlit==1.36.0
+torch==2.3.0
+torchvision==0.18.0
+numpy==1.25.2
+Pillow==10.2.0
+pyyaml==6.0.1
