@@ -200,8 +200,14 @@ def main():
     elif selected_image is not None:
         image_path = os.path.join(example_images_path, selected_image)
         image = Image.open(image_path)
-    elif has_camera and st.camera_input("Take a Picture") is not None:
-        image = Image.open(st.camera_input("Take a Picture"))
+    
+    elif has_camera:
+        camera_image = st.camera_input("Take a Picture", key="camera_input_key")
+        if camera_image is not None:
+             image = Image.open(camera_image)
+        else:
+            st.warning("Please take a picture to proceed or use File Uploader instead.")
+            st.stop()
     else:
         st.write("No image available.")
         return
@@ -249,3 +255,4 @@ def main():
           
 # if __name__ == "__main__":
 main()
+
