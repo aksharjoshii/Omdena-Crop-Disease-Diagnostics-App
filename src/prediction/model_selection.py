@@ -146,7 +146,7 @@ def load_model(file_path, config):
     """
     # Try to load the file as a complete model
     try:
-        loaded_model = torch.load(file_path)
+        loaded_model = torch.load(file_path, map_location=torch.device('cpu'))
         
         # If the loaded object is a dictionary, it's likely a state_dict
         if isinstance(loaded_model, dict):
